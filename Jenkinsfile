@@ -18,6 +18,14 @@ pipeline{
         //     }
         // }
 
+        stage('Deleting') {
+            steps {
+                script {
+                    // Assuming Jenkins runs on the same EC2 instance
+                    sh 'sudo rm -rf .'
+                }
+            }
+        }
         stage('Deploy to /var/www/html') {
             steps {
                 script {
