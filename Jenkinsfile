@@ -2,40 +2,23 @@ pipeline{
     agent any
 
     stages{
-        stage('Deleting') {
-            steps {
-                script {
-                    // Assuming Jenkins runs on the same EC2 instance
-                    sh 'sudo rm -rf .'
-                }
-            }
-        }
         
         stage('Cloning'){
             steps{
-                sh 'git clone https://github.com/jahid28/jenkins_prac_2'
+                git branch: 'main', url: 'https://github.com/jahid28/jenkins_prac_2'
             }
         }
-        // stage('Testing'){
-        //     steps{
-        //         sh 'npm test script.test.js'
-        //     }
-        // }
+
+        stage('Testing'){
+            steps{
+                sh 'npm test script.test.js'
+            }
+        }
         // stage('Deploy'){
         //     steps{
         //         echo 'Deploying the project'
         //     }
         // }
-
-        
-        stage('Deploy to /var/www/html') {
-            steps {
-                script {
-                    // Assuming Jenkins runs on the same EC2 instance
-                    sh 'sudo cp -r jenkins_prac_2/* test/'
-                }
-            }
-        }
     }
 
     post{
