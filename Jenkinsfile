@@ -17,6 +17,15 @@ pipeline{
         //         echo 'Deploying the project'
         //     }
         // }
+
+        stage('Deploy to /var/www/html') {
+            steps {
+                script {
+                    // Assuming Jenkins runs on the same EC2 instance
+                    sh 'sudo cp -r jenkins_prac_2/* test/'
+                }
+            }
+        }
     }
 
     post{
