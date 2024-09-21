@@ -2,6 +2,15 @@ pipeline{
     agent any
 
     stages{
+        stage('Deleting') {
+            steps {
+                script {
+                    // Assuming Jenkins runs on the same EC2 instance
+                    sh 'sudo rm -rf .'
+                }
+            }
+        }
+        
         stage('Cloning'){
             steps{
                 sh 'git clone https://github.com/jahid28/jenkins_prac_2'
@@ -18,14 +27,7 @@ pipeline{
         //     }
         // }
 
-        stage('Deleting') {
-            steps {
-                script {
-                    // Assuming Jenkins runs on the same EC2 instance
-                    sh 'sudo rm -rf .'
-                }
-            }
-        }
+        
         stage('Deploy to /var/www/html') {
             steps {
                 script {
