@@ -2,10 +2,17 @@ pipeline{
     agent any
 
     stages{
-        
+
         stage('Cloning'){
             steps{
                 git branch: 'main', url: 'https://github.com/jahid28/jenkins_prac_2'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Install npm packages
+                sh 'npm install -y'
             }
         }
 
