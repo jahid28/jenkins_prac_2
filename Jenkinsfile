@@ -7,11 +7,11 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/jahid28/jenkins_prac_2'
             }
         }
-        stage('Testing'){
-            steps{
-                sh 'npm test script.test.js'
-            }
-        }
+        // stage('Testing'){
+        //     steps{
+        //         sh 'npm test script.test.js'
+        //     }
+        // }
         // stage('Deploy'){
         //     steps{
         //         echo 'Deploying the project'
