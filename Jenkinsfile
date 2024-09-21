@@ -12,7 +12,7 @@ pipeline{
         stage('Install Dependencies') {
             steps {
                 // Install npm packages
-                sh 'npm install -y'
+                sh 'npm install jest -y'
             }
         }
 
